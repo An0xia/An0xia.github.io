@@ -13,6 +13,7 @@
             "date_published": "2022-07-05T16:00:00.000Z",
             "content_html": "<p>This post contains 3 tags. Make sure your theme can display all of the tags.</p>\n",
             "tags": [
+                "内网",
                 "vulnhub"
             ]
         },
