@@ -7,14 +7,6 @@
     "home_page_url": "http://example.com",
     "items": [
         {
-            "id": "http://example.com/2022/07/06/vulnhub-JANGOW/",
-            "url": "http://example.com/2022/07/06/vulnhub-JANGOW/",
-            "title": "",
-            "date_published": "2022-07-06T06:09:40.465Z",
-            "content_html": "<p>title: JANGOW: 1.0.1<br />\ndate: 2022-07-06<br />\ntags:</p>\n<ul>\n<li>vulnhub</li>\n</ul>\n",
-            "tags": []
-        },
-        {
             "id": "http://example.com/2022/07/05/hello-world/",
             "url": "http://example.com/2022/07/05/hello-world/",
             "title": "Hello World",
