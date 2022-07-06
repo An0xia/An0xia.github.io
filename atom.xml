@@ -8,7 +8,20 @@
     <author>
       <name>An0xia</name>
     </author>
-    <updated>2022-07-05T08:03:35.841Z</updated>
+    <updated>2022-07-06T06:09:40.465Z</updated>
+    <entry>
+        <id>http://example.com/2022/07/06/vulnhub-JANGOW/</id>
+        <title></title>
+        <link rel="alternate" href="http://example.com/2022/07/06/vulnhub-JANGOW/"/>
+        <content type="html">&lt;p&gt;title: JANGOW: 1.0.1&lt;br /&gt;
+date: 2022-07-06&lt;br /&gt;
+tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vulnhub&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <updated>2022-07-06T06:09:40.465Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2022/07/05/hello-world/</id>
         <title>Hello World</title>
