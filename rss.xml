@@ -21,7 +21,7 @@
             <pubDate>Wed, 06 Jul 2022 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;首先配置一下虚拟机，因为 ova 格式用 VM 导入的话，是不显示 ip 的，具体配置网上都有，这里就不说了&lt;/p&gt;
 &lt;p&gt;配置成功后，在本机上使用 arp-scan -l 就可以看到靶机 ip (用来验证是否配置成功)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;https://raw.githubusercontent.com/An0xia/Picture/master/202207061646295.png?token=AU26TI3AORPJTFDFFVHDDJ3CYVGBS&#34; alt=&#34;image-20220706164621250&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/6f19y7LDuT8KMZQ.png&#34; alt=&#34;image-20220706180938973&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;端口扫描&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;https://s2.loli.net/2022/07/06/D5f1rEh8AxVond2.png&#34; alt=&#34;image-20220706173442839&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;开放了 80 端口，所以直接访问看看，点点点，就发现可疑接口&lt;/p&gt;
