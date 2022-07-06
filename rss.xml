@@ -29,5 +29,14 @@
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;span&gt;h&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2013/12/24/vulnhub-JANGOW/</guid>
+            <title>Tags</title>
+            <link>http://example.com/2013/12/24/vulnhub-JANGOW/</link>
+            <category term="111111" scheme="http://example.com/tags/111111/" />
+            <pubDate>Tue, 24 Dec 2013 23:29:53 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;This post contains 3 tags. Make sure your theme can display all of the tags.&lt;/p&gt;
+ ]]></description>
+        </item>
     </channel>
 </rss>

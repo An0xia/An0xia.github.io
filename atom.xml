@@ -26,4 +26,13 @@
 </content>
         <updated>2022-07-05T08:03:35.841Z</updated>
     </entry>
+    <entry>
+        <id>http://example.com/2013/12/24/vulnhub-JANGOW/</id>
+        <title>Tags</title>
+        <link rel="alternate" href="http://example.com/2013/12/24/vulnhub-JANGOW/"/>
+        <content type="html">&lt;p&gt;This post contains 3 tags. Make sure your theme can display all of the tags.&lt;/p&gt;
+</content>
+        <category term="111111" scheme="http://example.com/tags/111111/" />
+        <updated>2013-12-24T15:29:53.000Z</updated>
+    </entry>
 </feed>
